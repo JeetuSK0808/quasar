@@ -1,0 +1,503 @@
+{
+ "calibration_files": [
+  "2024-09-22_2024-09-28_Win64_test.jsonl",
+  "2024-09-29_2024-10-05_Win64_test.jsonl",
+  "2024-10-06_2024-10-12_Win64_test.jsonl",
+  "2024-10-13_2024-10-19_Win64_test.jsonl",
+  "2024-10-20_2024-10-26_Win64_test.jsonl",
+  "2024-10-27_2024-11-02_Win64_test.jsonl"
+ ],
+ "test_files": [
+  "2024-11-03_2024-11-09_Win64_test.jsonl",
+  "2024-11-10_2024-11-16_Win64_test.jsonl",
+  "2024-11-17_2024-11-23_Win64_test.jsonl",
+  "2024-11-24_2024-11-30_Win64_test.jsonl",
+  "2024-12-01_2024-12-07_Win64_test.jsonl",
+  "2024-12-08_2024-12-14_Win64_test.jsonl"
+ ],
+ "n_cal": 120000,
+ "n_test": 120000,
+ "rules": {
+  "proc-injection": {
+   "attck": "T1055",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.411,
+    "precision": 0.337,
+    "recall": 0.525,
+    "tp": 843,
+    "fp": 1659,
+    "fn": 762
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "NtWriteVirtualMemory",
+     "WriteProcessMemory"
+    ],
+    "dropped": [
+     "CreateRemoteThread",
+     "NtUnmapViewOfSection",
+     "QueueUserAPC",
+     "RtlCreateUserThread",
+     "SetThreadContext",
+     "VirtualAllocEx"
+    ],
+    "f1": 0.507,
+    "precision": 0.392,
+    "recall": 0.718,
+    "tp": 1152,
+    "fp": 1788,
+    "fn": 453
+   }
+  },
+  "dynamic-api": {
+   "attck": "T1027",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.349,
+    "precision": 0.299,
+    "recall": 0.418,
+    "tp": 9670,
+    "fp": 22658,
+    "fn": 13491
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "GetProcAddress",
+     "LdrLoadDll",
+     "LoadLibraryA",
+     "LoadLibraryW"
+    ],
+    "dropped": [],
+    "f1": 0.441,
+    "precision": 0.306,
+    "recall": 0.79,
+    "tp": 18292,
+    "fp": 41410,
+    "fn": 4869
+   }
+  },
+  "persist-run": {
+   "attck": "T1547.001",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.114,
+    "precision": 0.062,
+    "recall": 0.738,
+    "tp": 834,
+    "fp": 12658,
+    "fn": 296
+   },
+   "calibrated": {
+    "min_imports": 2,
+    "imports": [
+     "RegCreateKeyEx",
+     "RegSetValueEx"
+    ],
+    "dropped": [],
+    "f1": 0.123,
+    "precision": 0.068,
+    "recall": 0.645,
+    "tp": 729,
+    "fp": 9995,
+    "fn": 401
+   }
+  },
+  "persist-service": {
+   "attck": "T1543.003",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.159,
+    "precision": 0.09,
+    "recall": 0.716,
+    "tp": 1039,
+    "fp": 10563,
+    "fn": 412
+   },
+   "calibrated": {
+    "min_imports": 2,
+    "imports": [
+     "CreateService",
+     "OpenSCManager",
+     "StartService"
+    ],
+    "dropped": [
+     "ChangeServiceConfig"
+    ],
+    "f1": 0.501,
+    "precision": 0.398,
+    "recall": 0.675,
+    "tp": 979,
+    "fp": 1479,
+    "fn": 472
+   }
+  },
+  "persist-schtask": {
+   "attck": "T1053.005",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 57
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "ITaskScheduler",
+     "ITaskService"
+    ],
+    "dropped": [],
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 57
+   }
+  },
+  "anti-debug": {
+   "attck": "T1622",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.002,
+    "precision": 0.001,
+    "recall": 0.936,
+    "tp": 73,
+    "fp": 65731,
+    "fn": 5
+   },
+   "calibrated": {
+    "min_imports": 3,
+    "imports": [
+     "CheckRemoteDebuggerPresent",
+     "IsDebuggerPresent",
+     "OutputDebugString"
+    ],
+    "dropped": [
+     "NtQueryInformationProcess"
+    ],
+    "f1": 0.042,
+    "precision": 0.025,
+    "recall": 0.115,
+    "tp": 9,
+    "fp": 345,
+    "fn": 69
+   }
+  },
+  "keylog": {
+   "attck": "T1056.001",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.482,
+    "precision": 0.332,
+    "recall": 0.873,
+    "tp": 2066,
+    "fp": 4148,
+    "fn": 301
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "GetAsyncKeyState",
+     "GetKeyState",
+     "GetKeyboardState"
+    ],
+    "dropped": [
+     "SetWindowsHookEx"
+    ],
+    "f1": 0.496,
+    "precision": 0.351,
+    "recall": 0.844,
+    "tp": 1997,
+    "fp": 3685,
+    "fn": 370
+   }
+  },
+  "screen-capture": {
+   "attck": "T1113",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.189,
+    "precision": 0.105,
+    "recall": 0.931,
+    "tp": 526,
+    "fp": 4466,
+    "fn": 39
+   },
+   "calibrated": {
+    "min_imports": 3,
+    "imports": [
+     "BitBlt",
+     "CreateCompatibleBitmap",
+     "GetDC",
+     "GetDesktopWindow"
+    ],
+    "dropped": [],
+    "f1": 0.269,
+    "precision": 0.158,
+    "recall": 0.89,
+    "tp": 503,
+    "fp": 2673,
+    "fn": 62
+   }
+  },
+  "clipboard": {
+   "attck": "T1115",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.486,
+    "precision": 0.326,
+    "recall": 0.954,
+    "tp": 1392,
+    "fp": 2882,
+    "fn": 67
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "OpenClipboard"
+    ],
+    "dropped": [
+     "GetClipboardData"
+    ],
+    "f1": 0.487,
+    "precision": 0.327,
+    "recall": 0.951,
+    "tp": 1388,
+    "fp": 2854,
+    "fn": 71
+   }
+  },
+  "cred-lsass": {
+   "attck": "T1003.001",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 796,
+    "fn": 0
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "MiniDumpWriteDump"
+    ],
+    "dropped": [],
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 796,
+    "fn": 0
+   }
+  },
+  "token-priv": {
+   "attck": "T1134",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.144,
+    "precision": 0.079,
+    "recall": 0.806,
+    "tp": 2603,
+    "fp": 30423,
+    "fn": 627
+   },
+   "calibrated": {
+    "min_imports": 2,
+    "imports": [
+     "AdjustTokenPrivileges",
+     "OpenProcessToken"
+    ],
+    "dropped": [
+     "DuplicateTokenEx"
+    ],
+    "f1": 0.526,
+    "precision": 0.402,
+    "recall": 0.763,
+    "tp": 2463,
+    "fp": 3665,
+    "fn": 767
+   }
+  },
+  "exec-shell": {
+   "attck": "T1059",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.361,
+    "precision": 0.238,
+    "recall": 0.754,
+    "tp": 7164,
+    "fp": 22980,
+    "fn": 2334
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "CreateProcess"
+    ],
+    "dropped": [
+     "ShellExecuteA",
+     "ShellExecuteW",
+     "WinExec"
+    ],
+    "f1": 0.399,
+    "precision": 0.274,
+    "recall": 0.734,
+    "tp": 6973,
+    "fp": 18517,
+    "fn": 2525
+   }
+  },
+  "c2-network": {
+   "attck": "T1071",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 42342,
+    "fn": 0
+   },
+   "calibrated": {
+    "min_imports": 2,
+    "imports": [
+     "HttpOpenRequest",
+     "HttpSendRequest",
+     "InternetConnect",
+     "InternetOpen",
+     "WSAStartup",
+     "WinHttpConnect",
+     "WinHttpOpen",
+     "connect",
+     "getaddrinfo",
+     "recv",
+     "send"
+    ],
+    "dropped": [],
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 42342,
+    "fn": 0
+   }
+  },
+  "download-exec": {
+   "attck": "T1105",
+   "baseline": {
+    "min_imports": 1,
+    "f1": 0.017,
+    "precision": 0.011,
+    "recall": 0.037,
+    "tp": 8,
+    "fp": 726,
+    "fn": 207
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "URLDownloadToFile"
+    ],
+    "dropped": [
+     "URLDownloadToCacheFile"
+    ],
+    "f1": 0.013,
+    "precision": 0.009,
+    "recall": 0.028,
+    "tp": 6,
+    "fp": 686,
+    "fn": 209
+   }
+  },
+  "ransom-crypto": {
+   "attck": "T1486",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 2204,
+    "fn": 0
+   },
+   "calibrated": {
+    "min_imports": 2,
+    "imports": [
+     "BCryptEncrypt",
+     "CryptAcquireContext",
+     "CryptEncrypt",
+     "CryptGenKey",
+     "CryptImportKey"
+    ],
+    "dropped": [],
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tp": 0,
+    "fp": 2204,
+    "fn": 0
+   }
+  },
+  "file-discovery": {
+   "attck": "T1083",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.513,
+    "precision": 0.409,
+    "recall": 0.689,
+    "tp": 12650,
+    "fp": 18264,
+    "fn": 5720
+   },
+   "calibrated": {
+    "min_imports": 1,
+    "imports": [
+     "FindFirstFile",
+     "FindNextFile",
+     "GetLogicalDrives"
+    ],
+    "dropped": [],
+    "f1": 0.522,
+    "precision": 0.404,
+    "recall": 0.735,
+    "tp": 13508,
+    "fp": 19892,
+    "fn": 4862
+   }
+  },
+  "rwx-shellcode": {
+   "attck": "T1055",
+   "baseline": {
+    "min_imports": 2,
+    "f1": 0.13,
+    "precision": 0.078,
+    "recall": 0.395,
+    "tp": 634,
+    "fp": 7486,
+    "fn": 971
+   },
+   "calibrated": {
+    "min_imports": 2,
+    "imports": [
+     "VirtualAlloc",
+     "VirtualProtect"
+    ],
+    "dropped": [],
+    "f1": 0.13,
+    "precision": 0.078,
+    "recall": 0.395,
+    "tp": 634,
+    "fp": 7486,
+    "fn": 971
+   }
+  }
+ }
+}

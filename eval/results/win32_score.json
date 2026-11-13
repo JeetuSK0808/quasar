@@ -1,0 +1,34 @@
+{
+ "n": 720000,
+ "auc": 0.7101,
+ "bands": {
+  "benign": {
+   "low": 205726,
+   "high-risk": 34434,
+   "likely malicious": 47290,
+   "suspicious": 72550
+  },
+  "malicious": {
+   "low": 91098,
+   "high-risk": 84944,
+   "suspicious": 81356,
+   "likely malicious": 102602
+  }
+ },
+ "median_score": {
+  "benign": 10.0,
+  "malicious": 50.0
+ },
+ "at>=20": {
+  "tpr": 0.747,
+  "fpr": 0.4285
+ },
+ "at>=50": {
+  "tpr": 0.521,
+  "fpr": 0.227
+ },
+ "at>=80": {
+  "tpr": 0.236,
+  "fpr": 0.0956
+ }
+}

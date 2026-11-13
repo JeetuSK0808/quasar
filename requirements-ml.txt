@@ -1,0 +1,12 @@
+# Optional ML-classifier env. Install into a CONDA env via scripts/setup_ml.sh, because on macOS
+# LightGBM needs its OpenMP runtime (libomp) from conda-forge (no Homebrew required).
+#
+#   bash scripts/setup_ml.sh
+#
+# Equivalent manual steps:
+#   conda create -p .venv-ml -c conda-forge python=3.11 "lightgbm>=4.5" numpy scikit-learn
+#   .venv-ml/bin/pip install pefile rich mcp polars tqdm "signify==0.7.1" huggingface_hub matplotlib
+#   .venv-ml/bin/pip install --no-deps git+https://github.com/futurecomputing4ai/ember2024.git
+#   .venv-ml/bin/python scripts/download_model.py
+#
+# signify is pinned to 0.7.1: newer releases moved SignedPEFile and break thrember's extractor.

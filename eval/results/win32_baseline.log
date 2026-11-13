@@ -1,0 +1,155 @@
+{
+ "files": 720000,
+ "labels": {
+  "1": 360000,
+  "0": 360000
+ },
+ "quasar_seconds_per_file": 0.000316,
+ "per_technique": {
+  "T1003": {
+   "quasar_fires": 2972,
+   "capa_fires": 0,
+   "tp": 0,
+   "fp": 2972,
+   "fn": 0,
+   "precision": 0.0,
+   "recall": null,
+   "f1": null,
+   "quasar_rate_malicious": 0.0027,
+   "quasar_rate_benign": 0.0055
+  },
+  "T1027": {
+   "quasar_fires": 347782,
+   "capa_fires": 180129,
+   "tp": 123927,
+   "fp": 223855,
+   "fn": 56202,
+   "precision": 0.356,
+   "recall": 0.688,
+   "f1": 0.469,
+   "quasar_rate_malicious": 0.6428,
+   "quasar_rate_benign": 0.3233
+  },
+  "T1053": {
+   "quasar_fires": 0,
+   "capa_fires": 1817,
+   "tp": 0,
+   "fp": 0,
+   "fn": 1817,
+   "precision": null,
+   "recall": 0.0,
+   "f1": null,
+   "quasar_rate_malicious": 0.0,
+   "quasar_rate_benign": 0.0
+  },
+  "T1055": {
+   "quasar_fires": 75650,
+   "capa_fires": 5993,
+   "tp": 4914,
+   "fp": 70736,
+   "fn": 1079,
+   "precision": 0.065,
+   "recall": 0.82,
+   "f1": 0.12,
+   "quasar_rate_malicious": 0.1259,
+   "quasar_rate_benign": 0.0842
+  },
+  "T1056": {
+   "quasar_fires": 70060,
+   "capa_fires": 21678,
+   "tp": 19381,
+   "fp": 50679,
+   "fn": 2297,
+   "precision": 0.277,
+   "recall": 0.894,
+   "f1": 0.423,
+   "quasar_rate_malicious": 0.1145,
+   "quasar_rate_benign": 0.0801
+  },
+  "T1059": {
+   "quasar_fires": 273780,
+   "capa_fires": 64858,
+   "tp": 43276,
+   "fp": 230504,
+   "fn": 21582,
+   "precision": 0.158,
+   "recall": 0.667,
+   "f1": 0.256,
+   "quasar_rate_malicious": 0.5428,
+   "quasar_rate_benign": 0.2177
+  },
+  "T1071": {
+   "quasar_fires": 127266,
+   "capa_fires": 15,
+   "tp": 0,
+   "fp": 127266,
+   "fn": 15,
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1": null,
+   "quasar_rate_malicious": 0.2285,
+   "quasar_rate_benign": 0.125
+  },
+  "T1083": {
+   "quasar_fires": 201600,
+   "capa_fires": 109983,
+   "tp": 66528,
+   "fp": 135072,
+   "fn": 43455,
+   "precision": 0.33,
+   "recall": 0.605,
+   "f1": 0.427,
+   "quasar_rate_malicious": 0.3134,
+   "quasar_rate_benign": 0.2466
+  },
+  "T1105": {
+   "quasar_fires": 4392,
+   "capa_fires": 4022,
+   "tp": 136,
+   "fp": 4256,
+   "fn": 3886,
+   "precision": 0.031,
+   "recall": 0.034,
+   "f1": 0.032,
+   "quasar_rate_malicious": 0.0096,
+   "quasar_rate_benign": 0.0026
+  },
+  "T1113": {
+   "quasar_fires": 76604,
+   "capa_fires": 10256,
+   "tp": 9901,
+   "fp": 66703,
+   "fn": 355,
+   "precision": 0.129,
+   "recall": 0.965,
+   "f1": 0.228,
+   "quasar_rate_malicious": 0.1261,
+   "quasar_rate_benign": 0.0867
+  },
+  "T1115": {
+   "quasar_fires": 57834,
+   "capa_fires": 20909,
+   "tp": 20329,
+   "fp": 37505,
+   "fn": 580,
+   "precision": 0.352,
+   "recall": 0.972,
+   "f1": 0.516,
+   "quasar_rate_malicious": 0.0931,
+   "quasar_rate_benign": 0.0676
+  },
+  "T1134": {
+   "quasar_fires": 104834,
+   "capa_fires": 38534,
+   "tp": 33884,
+   "fp": 70950,
+   "fn": 4650,
+   "precision": 0.323,
+   "recall": 0.879,
+   "f1": 0.473,
+   "quasar_rate_malicious": 0.1442,
+   "quasar_rate_benign": 0.147
+  },
+  "T1486": {
+   "quasar_fi
+elapsed 281 s

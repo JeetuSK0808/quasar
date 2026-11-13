@@ -1,0 +1,4 @@
+pefile>=2024.8.26
+rich>=13.0
+mcp>=1.0
+yara-python>=4.5   # optional: enables YARA signature scanning
