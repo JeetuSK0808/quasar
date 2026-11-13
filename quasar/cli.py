@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from .analyze import analyze as run_analyze
+from .analyze import analyze as run_analyze, VERSION
 from .report import render as render_report, to_json
 
 _SUBCOMMANDS = {"analyze", "serve"}
@@ -39,6 +39,7 @@ def main(argv: list[str] | None = None) -> int:
         prog="quasar",
         description="Quasar — static malware analyzer (TQG Research). Parses samples, never executes them.",
     )
+    parser.add_argument("--version", action="version", version=f"quasar {VERSION}")
     sub = parser.add_subparsers(dest="cmd")
     pa = sub.add_parser("analyze", help="analyze a file")
     pa.add_argument("file")

@@ -17,7 +17,9 @@ Feature set at first release, summarizing earlier internal development:
 - **ML second opinion (optional)** — the EMBER2024 benchmark PE classifier (LightGBM,
   `thrember` feature extractor), reported *alongside* the heuristic score, never
   merged into it.
-- **Packaging** — pip-installable; `quasar` CLI with text and `--json` output.
+- **Packaging** — pip-installable as `quasar-malware`; `quasar` CLI with text and
+  `--json` output, `quasar --version`, and the bundled YARA rules shipped inside the
+  wheel. Released to PyPI from GitHub via trusted publishing (OIDC, no stored token).
 - **Shareable HTML report** — `--html` export.
 - **YARA scanning** — optional, against bundled rules or a rule set you point to.
 - **MCP server** — `quasar serve`, so AI agents can call `analyze_file` natively.
